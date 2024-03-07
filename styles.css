@@ -15,4 +15,10 @@ body {
 
 canvas {
     border: 1px solid black;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+canvas.show {
+    opacity: 1;
 }
