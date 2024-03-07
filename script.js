@@ -27,7 +27,7 @@ function drawFlower(ctx) {
 
     // Dibuja el tallo
     ctx.beginPath();
-    ctx.rect(centerX - stemWidth / 2, centerY + 20, stemWidth, stemLength);
+    ctx.rect(centerX - stemWidth / 2, centerY + 30, stemWidth, stemLength);
     ctx.fillStyle = stemColor;
     ctx.fill();
 
