@@ -8,18 +8,27 @@ document.getElementById('openGiftButton').addEventListener('click', function() {
 });
 
 function drawFlower(ctx) {
-    ctx.fillStyle = 'yellow'; // Color del centro de la flor
-    ctx.beginPath();
-    ctx.arc(200, 200, 10, 0, Math.PI * 2); // Dibuja un círculo para el centro
-    ctx.fill();
-    ctx.closePath();
+    const centerX = 200;
+    const centerY = 200;
+    const petals = 8;
+    const petalRadius = 60;
 
-    ctx.fillStyle = 'red'; // Color de los pétalos
-    for (let i = 0; i < 5; i++) { // Dibuja 5 pétalos
+    // Dibuja pétalos
+    ctx.fillStyle = 'pink';
+    for (let i = 0; i < petals; i++) {
+        const angle = i * (Math.PI * 2 / petals);
+        const x = centerX + petalRadius * Math.sin(angle);
+        const y = centerY - petalRadius * Math.cos(angle);
         ctx.beginPath();
-        ctx.ellipse(200, 200, 50, 20, Math.PI / 5 * i, 0, Math.PI * 2); // Dibuja un pétalo
+        ctx.ellipse(x, y, 20, 40, Math.PI / 2 - angle, 0, Math.PI * 2);
         ctx.fill();
-        ctx.closePath();
     }
+
+    // Dibuja el centro de la flor
+    ctx.fillStyle = 'yellow';
+    ctx.beginPath();
+    ctx.arc(centerX, centerY, 20, 0, Math.PI * 2);
+    ctx.fill();
 }
+
 
