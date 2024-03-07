@@ -22,7 +22,7 @@ function drawFlower(ctx) {
     const petalColor = 'pink';
     const centerColor = 'yellow';
     const stemColor = 'green';
-    const stemLength = 150;
+    const stemLength = 120; // Ajusta la longitud del tallo si es necesario
 
     // Dibuja pétalos
     ctx.fillStyle = petalColor;
@@ -42,14 +42,19 @@ function drawFlower(ctx) {
     ctx.fill();
 
     // Dibuja el tallo
-    ctx.fillStyle = stemColor;
     ctx.beginPath();
-    ctx.rect(centerX - 5, centerY, 10, stemLength);
+    ctx.moveTo(centerX - 5, centerY);
+    ctx.lineTo(centerX - 5, centerY + stemLength);
+    ctx.lineTo(centerX + 5, centerY + stemLength);
+    ctx.lineTo(centerX + 5, centerY);
+    ctx.closePath();
+    ctx.fillStyle = stemColor;
     ctx.fill();
 
     // Añade el texto
-    ctx.font = '24px "Brush Script MT", cursive'; // Asegúrate de que esta fuente está disponible o elige una similar
-    ctx.textAlign = 'center';
+    ctx.font = 'italic 20px Arial';
     ctx.fillStyle = 'darkslategray';
+    ctx.textAlign = 'center';
     ctx.fillText('Una flor para otra flor', centerX, centerY + stemLength + 30);
 }
+
