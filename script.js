@@ -23,6 +23,13 @@ function drawFlower(ctx) {
     const centerColor = 'yellow';
     const stemColor = 'green';
     const stemLength = 120; // Ajusta la longitud del tallo si es necesario
+    const stemWidth = 10;
+
+    // Dibuja el tallo
+    ctx.beginPath();
+    ctx.rect(centerX - stemWidth / 2, centerY + 20, stemWidth, stemLength);
+    ctx.fillStyle = stemColor;
+    ctx.fill();
 
     // Dibuja pétalos
     ctx.fillStyle = petalColor;
@@ -41,20 +48,9 @@ function drawFlower(ctx) {
     ctx.arc(centerX, centerY, 20, 0, Math.PI * 2);
     ctx.fill();
 
-    // Dibuja el tallo
-    ctx.beginPath();
-    ctx.moveTo(centerX - 5, centerY);
-    ctx.lineTo(centerX - 5, centerY + stemLength);
-    ctx.lineTo(centerX + 5, centerY + stemLength);
-    ctx.lineTo(centerX + 5, centerY);
-    ctx.closePath();
-    ctx.fillStyle = stemColor;
-    ctx.fill();
-
     // Añade el texto
     ctx.font = 'italic 20px Arial';
     ctx.fillStyle = 'darkslategray';
-    ctx.textAlign = 'center';
-    ctx.fillText('Una flor para otra flor', centerX, centerY + stemLength + 30);
+    ctx.fillText('Una flor para otra flor', centerX, centerY + stemLength + 50); // Ajusta la posición Y si es necesario
 }
 
