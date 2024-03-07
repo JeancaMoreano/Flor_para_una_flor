@@ -12,15 +12,21 @@ body {
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    margin-bottom: 20px; /* Asegura espacio para el botón encima del lienzo */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Centrar verticalmente */
+    left: 50%; /* Centrar horizontalmente */
+    transform: translate(-50%, -50%); /* Ajuste fino para centrar exactamente */
+    z-index: 100; /* Asegurarse de que
+esté sobre el lienzo */
 }
 
 canvas {
-    border: 1px solid black;
-    opacity: 0; /* Inicialmente invisible */
-    transition: opacity 2s ease-in-out; /* Animación suave de la opacidad */
+border: 1px solid black;
+opacity: 0; 
+transition: opacity 2s ease-in-out; 
+margin-top: 20px; 
 }
 
 canvas.show {
-    opacity: 1; /* Hacer el canvas completamente visible cuando se añade esta clase */
+opacity: 1; /* Hacer el canvas completamente visible cuando se añade esta clase */
 }
