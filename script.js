@@ -52,7 +52,7 @@ function drawFlower(ctx) {
     ctx.font = 'italic 20px Arial';
     ctx.fillStyle = 'darkslategray';
     ctx.textAlign = 'center';
-    ctx.fillText('Una flor para otra flor', centerX, centerY + stemLength);
+    ctx.fillText('Una flor para otra flor', centerX, centerY + stemLength + 100);
 
 }
 
