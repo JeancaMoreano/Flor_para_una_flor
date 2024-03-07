@@ -1,10 +1,17 @@
 document.getElementById('openGiftButton').addEventListener('click', function() {
-    this.style.display = 'none'; // Ocultar el botón
     const canvas = document.getElementById('flowerCanvas');
-    canvas.style.display = 'block'; // Mostrar el lienzo
-
     const ctx = canvas.getContext('2d');
-    drawFlower(ctx);
+
+    // Ocultar el botón
+    this.style.display = 'none';
+
+    // Mostrar el canvas con animación
+    canvas.classList.add('show');
+
+    // Comenzar a dibujar la flor después de que inicie la animación
+    setTimeout(function() {
+        drawFlower(ctx);
+    }, 100); // Pequeña demora para sincronizar con la animación CSS
 });
 
 function drawFlower(ctx) {
@@ -12,23 +19,24 @@ function drawFlower(ctx) {
     const centerY = 200;
     const petals = 8;
     const petalRadius = 60;
+    const petalColor = 'pink';
+    const centerColor = 'yellow';
 
     // Dibuja pétalos
-    ctx.fillStyle = 'pink';
+    ctx.fillStyle = petalColor;
     for (let i = 0; i < petals; i++) {
         const angle = i * (Math.PI * 2 / petals);
-        const x = centerX + petalRadius * Math.sin(angle);
-        const y = centerY - petalRadius * Math.cos(angle);
+        const x = centerX + petalRadius * Math.cos(angle);
+        const y = centerY + petalRadius * Math.sin(angle);
         ctx.beginPath();
-        ctx.ellipse(x, y, 20, 40, Math.PI / 2 - angle, 0, Math.PI * 2);
+        ctx.ellipse(x, y, 20, 40, Math.PI / 2 + angle, 0, Math.PI * 2);
         ctx.fill();
     }
 
     // Dibuja el centro de la flor
-    ctx.fillStyle = 'yellow';
+    ctx.fillStyle = centerColor;
     ctx.beginPath();
     ctx.arc(centerX, centerY, 20, 0, Math.PI * 2);
     ctx.fill();
 }
-
 
